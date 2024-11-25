@@ -1,64 +1,224 @@
 package com.student.src;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student {
-	
-	private int roll_number;
-	private int student_id;
+
+	private int rollNumber;
+	private int studentId;
 	private String name;
-	private String father_name;
-	private String mother_name;
-	private String home_address;
-	
-	
-	void setRoll_number(int roll_number) {
-	this.roll_number=roll_number;
+	private String fatherName;
+	private String motherName;
+	private String homeAddress;
+	private static List<Student> allObjects = new ArrayList<>();
+
+	void setrollNumber(int rollNumber) {
+		this.rollNumber = rollNumber;
 	}
-	int getRoll_number() {
-		return roll_number;
+
+	int getRollNumber() {
+		return rollNumber;
 	}
-	void setStudent_id(int student_id) {
-		this.student_id=student_id;
+
+	void setstudentId(int studentId) {
+		this.studentId = studentId;
 	}
-	int getStudent_id() {
-		return student_id;
+
+	int getstudentId() {
+		return studentId;
 	}
+
 	String getName() {
 		return name;
 	}
+
 	void setName(String name) {
-		this.name=name;
+		this.name = name;
 	}
-	String getFather_name()
-	{
-		return father_name;
+
+	String getfatherName() {
+		return fatherName;
 	}
-	void setFather_name(String father_name) {
-		this.father_name=father_name;
+
+	void setFatherName(String fatherName) {
+		this.fatherName = fatherName;
 	}
-	String getMother_name() {
-		return mother_name;
+
+	String getMotherName() {
+		return motherName;
 	}
-	void setMother_name(String mother_name) {
-		this.mother_name=mother_name;
+
+	void setMotherName(String motherName) {
+		this.motherName = motherName;
 	}
-	void setHome_address(String home_address) {
-		this.home_address=home_address;
+
+	void setHomeAddress(String homeAddress) {
+		this.homeAddress = homeAddress;
 	}
-	String getHome_address() {
-		return home_address;
+
+	String getHomeAddress() {
+		return homeAddress;
 	}
-	Student()
-	{
-		this.roll_number=0;
-		this.student_id=0;
-		this.father_name="";
-		this.mother_name="";
-		this.home_address="";
+
+	Student() {
+		this.rollNumber = 0;
+		this.studentId = 0;
+		this.fatherName = "";
+		this.motherName = "";
+		this.homeAddress = "";
+		allObjects.add(this);
+		System.out.println(allObjects);
 	}
+
 	@Override
 	public String toString() {
-		return "Student [roll_number=" + roll_number + ", student_id=" + student_id + ", name=" + name
-				+ ", father_name=" + father_name + ", mother_name=" + mother_name + ", home_address=" + home_address
-				+ "]";
+		return "Student [rollNumber=" + rollNumber + ", studentId=" + studentId + ", name=" + name + ", fatherName="
+				+ fatherName + ", motherName=" + motherName + ", homeAddress=" + homeAddress + "]";
+	}
+
+	void viewAllSstudent() {
+		// TODO Auto-generated method stub
+
+		System.out.println("Student Id: " + getstudentId());
+		System.out.println("Student Roll No: " + getRollNumber());
+		System.out.println("Student Name: " + getName());
+		System.out.println("Student Father Name: " + getfatherName());
+		System.out.println("Student Mother Name: " + getMotherName());
+		System.out.println("Studetns FatherName: " + getfatherName());
+		System.out.println("Student Home Address: " + getHomeAddress());
+	}
+
+	void addstudent() {
+		// TODO Auto-generated method stub
+		Student newStudent = new Student();
+		
+		main.take_input.nextLine();
+
+		System.out.println("please enter the roll no:");
+		int roll_no = Integer.parseInt(main.take_input.nextLine());
+		setrollNumber(roll_no);
+
+		System.out.println("Enter the studentId");
+		int studentId = Integer.parseInt(main.take_input.nextLine());
+
+		setstudentId(studentId);
+
+		System.out.println("Enter the name");
+		String name = main.take_input.nextLine();
+		setName(name);
+
+		System.out.println("Enter the father name");
+		String fatherName = main.take_input.nextLine();
+		setFatherName(fatherName);
+
+		System.out.println("Enter the mother name");
+		String motherName = main.take_input.nextLine();
+		setMotherName(motherName);
+
+		System.out.println("Etner the home address");
+		String homeAddress = main.take_input.nextLine();
+		setHomeAddress(homeAddress);
+	}
+
+	void displayStudent(int roll_no) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Student Id: " + getstudentId());
+		System.out.println("Student Roll No: " + getRollNumber());
+		System.out.println("Student Name: " + getName());
+		System.out.println("Student Father Name: " + getfatherName());
+		System.out.println("Student Mother Name: " + getMotherName());
+		System.out.println("Studetns FatherName: " + getfatherName());
+		System.out.println("Student Home Address: " + getHomeAddress());
+
+	}
+
+	void searchStudent() {
+		// TODO Auto-generated method stub
+
+	}
+
+	void deleteStudent(int roll_no) {
+		// TODO Auto-generated method stub
+
+	}
+
+	void updateStudent(int roll_no) {
+		// TODO Auto-generated method stub
+
+		System.out.println("please enter the name");
+		String name = main.take_input.nextLine();
+		setName(name);
+
+		System.out.println("Enter the father name");
+		String fatherName = main.take_input.nextLine();
+		setFatherName(fatherName);
+
+		System.out.println("Enter the mother name");
+		String motherName = main.take_input.nextLine();
+		setMotherName(motherName);
+
+		System.out.println("Enter the home address");
+		String homeAddress = main.take_input.nextLine();
+		setHomeAddress(homeAddress);
+
+	}
+
+	void menu() {
+
+		do {
+			System.out.println("welcome please select from below");
+			System.out.println("1. Add a new student");
+			System.out.println("2. Display student details");
+			System.out.println("3. Search for student by their id or name");
+			System.out.println("4. Delete student records");
+			System.out.println("5. Update student information");
+			System.out.println("6. View all students");
+			System.out.println("0  For exit");
+			main.option = main.take_input.nextInt();
+
+			switch (main.option) {
+			case 1:
+				System.out.println("Add a new student");
+				addstudent();
+				break;
+			case 2:
+				System.out.println("Display student details");
+				System.out.println("Enter the roll no:");
+				int roll_no = main.take_input.nextInt();
+				displayStudent(roll_no);
+				break;
+			case 3:
+				System.out.println("Search for student by their id or name");
+				searchStudent();
+				break;
+			case 4:
+				System.out.println("Delete student records");
+				System.out.println("please enter the roll no to delete");
+				main.take_input.nextLine();
+				roll_no = Integer.parseInt(main.take_input.nextLine());
+				deleteStudent(roll_no);
+				break;
+			case 5:
+				System.out.println("Update student information");
+				System.out.println("please enter the roll no to update");
+				roll_no = Integer.parseInt(main.take_input.nextLine());
+				updateStudent(roll_no);
+				break;
+			case 6:
+				System.out.println("View all students");
+				viewAllSstudent();
+				break;
+			case 0:
+				System.out.println("exiting to program");
+				return;
+			default:
+				System.out.println("Wrong choice");
+				break;
+			}
+
+		} while (main.option != 0);
+
 	}
 }
