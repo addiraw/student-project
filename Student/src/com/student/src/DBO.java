@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Test {
+public class DBO {
 	public static void main(String[] args) {
 		String url = "jdbc:mysql://localhost:3306/student";
 		String username = "root";
@@ -22,12 +22,12 @@ public class Test {
 		// SQL queries
 		String selectQuery = "SELECT * FROM student"; // Replace with your source table name
 		String insertQuery = "INSERT INTO student_newly_enrolled (roll_no, student_id, student_name,student_father_name, student_mother_name,student_home_address) VALUES (?, ?,?, ?, ?, ?)"; // Replace
-																																																			// with
-																																																			// your
-																																																			// target
-																																																			// table
-																																																			// and
-																																																			// columns
+																																																// with
+																																																// your
+																																																// target
+																																																// table
+																																																// and
+																																																// columns
 
 		try (
 				// Establishing the connection
@@ -40,9 +40,9 @@ public class Test {
 				int column1Value = rs.getInt("roll_no");
 				int column2Value = rs.getInt("student_id");
 				String column3Value = rs.getString("student_name");
-				String column4Value =rs.getString("student_father_name");
-				String column5Value =rs.getString("student_mother_name");
-				String column6Value =rs.getString("student_home_address");
+				String column4Value = rs.getString("student_father_name");
+				String column5Value = rs.getString("student_mother_name");
+				String column6Value = rs.getString("student_home_address");
 
 				// Set the data to the PreparedStatement for the INSERT query
 				pstmt.setInt(1, column1Value);

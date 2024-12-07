@@ -2,6 +2,7 @@ package com.student.src;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Student {
 
@@ -166,6 +167,8 @@ public class Student {
 	}
 
 	void menu() {
+		Scanner scanInput = new Scanner(System.in);
+		int option = scanInput.nextInt();
 
 		do {
 			System.out.println("welcome please select from below");
@@ -176,9 +179,9 @@ public class Student {
 			System.out.println("5. Update student information");
 			System.out.println("6. View all students");
 			System.out.println("0  For exit");
-			main.option = main.take_input.nextInt();
 
-			switch (main.option) {
+
+			switch (option) {
 			case 1:
 				System.out.println("Add a new student");
 				addstudent();
@@ -186,7 +189,7 @@ public class Student {
 			case 2:
 				System.out.println("Display student details");
 				System.out.println("Enter the roll no:");
-				int roll_no = main.take_input.nextInt();
+				int roll_no = scanInput.nextInt();
 				displayStudent(roll_no);
 				break;
 			case 3:
@@ -196,14 +199,14 @@ public class Student {
 			case 4:
 				System.out.println("Delete student records");
 				System.out.println("please enter the roll no to delete");
-				main.take_input.nextLine();
-				roll_no = Integer.parseInt(main.take_input.nextLine());
+				scanInput.nextLine();
+				roll_no = Integer.parseInt(scanInput.nextLine());
 				deleteStudent(roll_no);
 				break;
 			case 5:
 				System.out.println("Update student information");
 				System.out.println("please enter the roll no to update");
-				roll_no = Integer.parseInt(main.take_input.nextLine());
+				roll_no = Integer.parseInt(scanInput.nextLine());
 				updateStudent(roll_no);
 				break;
 			case 6:
@@ -218,7 +221,7 @@ public class Student {
 				break;
 			}
 
-		} while (main.option != 0);
+		} while (option != 0);
 
 	}
 }
